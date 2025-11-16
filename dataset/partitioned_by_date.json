@@ -1,0 +1,70 @@
+{
+	"name": "partitioned_by_date",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folderPath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().folderPath",
+					"type": "Expression"
+				},
+				"fileSystem": "salescontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "CustomerID",
+				"type": "INT64"
+			},
+			{
+				"name": "Age",
+				"type": "INT32"
+			},
+			{
+				"name": "Salary",
+				"type": "INT32"
+			},
+			{
+				"name": "Balance",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "MaritalStatus",
+				"type": "UTF8"
+			},
+			{
+				"name": "GeoLocation",
+				"type": "UTF8"
+			},
+			{
+				"name": "CreatedOn",
+				"type": "DATE"
+			},
+			{
+				"name": "year",
+				"type": "UTF8"
+			},
+			{
+				"name": "month",
+				"type": "UTF8"
+			},
+			{
+				"name": "day",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "adf-migrate-1B-datalake-synapse",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7d92f185-09f4-478d-8e8e-68c2a70e8ecb",
+		"tenantId": "39f02255-5266-40e2-839f-f16d96f095d3"
+	}
+}

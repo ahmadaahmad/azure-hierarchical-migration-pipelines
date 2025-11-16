@@ -1,0 +1,68 @@
+{
+	"name": "partitioned_by_date_copy1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"folderPath": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "part-00002-tid-681715550654174227-f62252dc-e626-4e0d-9fbd-d4f4da99231b-100-1266.c000.snappy.parquet",
+				"folderPath": "synthetic_customers_partitioned_date/year=2023/month=6/day=19",
+				"fileSystem": "salescontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "CustomerID",
+				"type": "INT64"
+			},
+			{
+				"name": "Age",
+				"type": "INT32"
+			},
+			{
+				"name": "Salary",
+				"type": "INT32"
+			},
+			{
+				"name": "Balance",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "MaritalStatus",
+				"type": "UTF8"
+			},
+			{
+				"name": "GeoLocation",
+				"type": "UTF8"
+			},
+			{
+				"name": "CreatedOn",
+				"type": "DATE"
+			},
+			{
+				"name": "year",
+				"type": "UTF8"
+			},
+			{
+				"name": "month",
+				"type": "UTF8"
+			},
+			{
+				"name": "day",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
