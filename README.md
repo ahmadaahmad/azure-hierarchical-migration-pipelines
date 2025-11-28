@@ -48,3 +48,13 @@ df.write.mode("overwrite").partitionBy("year", "month", "day").parquet(
 2. Integrate this project github to ADF. create new table in synapse dedicated database that match the schema of the source file.
 3. create stored procedure with COPY INTO command that points to synthetic_customers_partitioned_yyyymmdd/
 4. compare the performance between ADF copy and COPY INTO usp
+
+## Performance Profile (Simulated)
+Databricks load to datalake (25mins) - [AhmadA] i.e. running the pyspark code above
+ADF nested loop (2hr 20m)
+Synapse COPY INTO stored procedure (27 min)
+
+
+## Conclution
+- COPY INTO benefits from MPP (Massively Parallel Processing) inside Synapse, distributing ingestion across multiple compute nodes.
+- ADF Copy Activity must stream rows through its Integration Runtime and SQL must commit them row-by-row or in batches, making it slower for heavy loads.
